@@ -1,107 +1,593 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Profil Kelas – TMM 25B</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="nav-logo">TMM 25 B</div>
-    <ul class="nav-links">
-      <li><a href="#home">Beranda</a></li>
-      <li><a href="#anggota">Anggota</a></li>
-      <li><a href="#tentang">Tentang</a></li>
-    </ul>
-  </nav>
+:root {
+  --bg-dark: #0a0a0f;
+  --glass: rgba(255,255,255,0.07);
+  --glass-border: rgba(255,255,255,0.15);
+  --accent: #1e3a8a;
+  --accent2: #1e40af;
+  --accent3: #1d4ed8;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+}
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-badge"><span></span> Teknik Multimedia · Semester 2 · 2026</div>
-    <h1>Kelas <span class="highlight">TMM B 25</span><br/>Teknik Multimedia</h1>
-    <p>Selamat datang di halaman profil kelas kami. Bersama kami belajar, berinovasi, dan bertumbuh.</p>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-number">30</div>
-        <div class="stat-label">Anggota Aktif</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">2</div>
-        <div class="stat-label">Semester</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">2025</div>
-        <div class="stat-label">Angkatan</div>
-      </div>
-    </div>
-    <div class="scroll-hint">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
-      Scroll ke bawah
-    </div>
-  </section>
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
 
-  <!-- MEMBERS -->
-  <div class="section" id="anggota">
-    <div class="section-header">
-      <h2>Anggota Kelas</h2>
-      <p>30 mahasiswa penuh semangat & potensi luar biasa!</p>
-    </div>
-    <div class="members-grid" id="membersGrid"></div>
-  </div>
+/* Background cinematic multi-layer dengan parallax scroll */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 30%, rgba(30,58,138,0.22) 0%, rgba(30,64,175,0.15) 40%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 70% 70%, rgba(31,41,55,0.18) 0%, rgba(17,24,39,0.12) 40%, transparent 70%),
+    radial-gradient(ellipse 50% 30% at 40% 80%, rgba(29,78,216,0.14) 0%, rgba(15,23,42,0.1) 50%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 20%, rgba(10,15,25,0.25) 0%, transparent 60%);
+  z-index: -1;
+  animation: dramaticDrift 30s ease-in-out infinite alternate, 
+             cinematicPulse 20s ease-in-out infinite 3s;
+  animation-timeline: scroll(root block);
+  animation-range: cover 0% / cover 120%; /* Parallax slow drift saat scroll */
+}
 
-  <!-- ABOUT -->
-  <div class="section" id="tentang">
-    <div class="section-header">
-      <h2>Tentang Kelas</h2>
-      <p>Lebih dekat dengan kelas kami</p>
-    </div>
-    <div class="about-grid">
-      <div class="info-card">
-        <div class="icon">🏛️</div>
-        <h3>Program Studi</h3>
-        <p>D4 Teknik Multimedia — Program Studi D4 Teknik Multimedia merupakan program vokasi yang berfokus pada penguasaan teknologi dan keterampilan di bidang multimedia, seperti desain grafis, animasi, produksi video, serta pengembangan web dan aplikasi interaktif. Kurikulum dirancang sesuai kebutuhan industri kreatif, sehingga lulusan memiliki kemampuan teknis dan kreatif yang siap diterapkan di dunia kerja sebagai profesional di bidang multimedia..</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">📅</div>
-        <h3>Tahun Ajaran</h3>
-        <p>Angkatan 2025 — saat ini menempuh semester 2. Aktif mengikuti kegiatan akademik, praktikum, dan organisasi kampus.</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🎯</div>
-        <h3>Visi Kelas</h3>
-        <p>Menjadi generasi insinyur yang kompeten, kolaboratif, dan berdampak nyata bagi kemajuan teknologi Indonesia.</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">⚡</div>
-        <h3>Semangat Kami</h3>
-        <p>"Bukan hanya belajar teori, tapi menciptakan solusi nyata." — Kelas 2EL1 selalu siap menghadapi tantangan bersama.</p>
-      </div>
-    </div>
-  </div>
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1.2px 1.2px at 25px 35px, rgba(30,58,138,0.9), transparent),
+    radial-gradient(1px 1px at 70px 90px, rgba(29,78,216,0.7), transparent),
+    radial-gradient(0.8px 0.8px at 110px 60px, rgba(30,64,175,0.8), transparent),
+    radial-gradient(1.1px 1.1px at 150px 100px, rgba(15,23,42,0.95), transparent);
+  background-repeat: repeat;
+  background-size: 220px 140px, 280px 170px, 200px 120px, 240px 150px;
+  animation: particleDrift 40s linear infinite, twinkle 4s ease-in-out infinite alternate;
+  z-index: -1;
+}
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Made with <span></span> by Kelas TMM B 25 · Teknik Multimedia · © 2026</p>
-  </footer>
+@keyframes dramaticDrift {
+  0% { transform: translateX(-6%) translateY(-4%) scale(1.01) rotate(0.5deg); opacity: 0.7; }
+  50% { transform: translateX(4%) translateY(3%) scale(1.03) rotate(-0.3deg); opacity: 0.9; }
+  100% { transform: translateX(-3%) translateY(-2%) scale(1.02) rotate(0.4deg); opacity: 0.8; }
+}
 
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="modalBox">
-      <button class="modal-close" id="modalCloseBtn">✕</button>
-      <div class="modal-avatar" id="modalAvatar"></div>
-      <h2 id="modalName"></h2>
-      <div class="nim" id="modalNim"></div>
-      <div class="role" id="modalRole"></div>
-      <div class="modal-info" id="modalInfo"></div>
-    </div>
-  </div>
+@keyframes cinematicPulse {
+  0%, 100% { opacity: 0.75; filter: brightness(1) contrast(1.05); }
+  50% { opacity: 0.95; filter: brightness(1.08) contrast(1.1); }
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+@keyframes particleDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 200px; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 52px;
+  background: rgba(5, 5, 7, 0.185);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-logo {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.nav-links a:hover { 
+  color: var(--text-primary); 
+  text-shadow: 0 0 10px rgba(218, 218, 230, 0.986);
+}
+
+/* Hero dengan cinematic entrance */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 28px;
+  animation: fadeInUp 1s ease both;
+}
+
+.hero-badge span {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  background: linear-gradient(135deg, #fbfbfc 0%, #a1a1a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: cinematicSlide 1.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s both;
+  position: relative;
+}
+
+.hero h1 .highlight {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: clamp(15px, 2vw, 20px);
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.6;
+  animation: fadeInUp 1s 0.6s both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 50px;
+  animation: fadeInUp 1s 0.8s both;
+}
+
+.stat {
+  text-align: center;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  padding: 20px 32px;
+  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(30,58,138,0.3);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.scroll-hint {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  animation: fadeInUp 1s 1s both, bounce 2.5s 1.8s ease-in-out infinite;
+}
+
+.scroll-hint svg {
+  width: 20px; height: 20px;
+  stroke: var(--text-secondary);
+  stroke-width: 2;
+  animation: arrowGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes arrowGlow {
+  0% { stroke: var(--text-secondary); opacity: 0.7; }
+  100% { stroke: var(--accent); opacity: 1; }
+}
+
+/* Section */
+.section {
+  padding: 80px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  animation: fadeInUp 1s ease both;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+/* Member Grid cinematic hover */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.member-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 22px;
+  padding: 28px 20px 22px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  animation: fadeInUp 0.8s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.member-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30,58,138,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 0;
+}
+
+.member-card::after {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle at center, rgba(30,58,138,0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: all 0.6s;
+  z-index: -1;
+  animation: none;
+}
+
+.member-card:hover {
+  transform: translateY(-12px) scale(1.03) rotateX(8deg);
+  box-shadow: 0 32px 80px rgba(30,58,138,0.4), 0 0 50px rgba(30,58,138,0.6);
+  border-color: rgba(30,58,138,0.6);
+}
+
+.member-card:hover::before { opacity: 1; }
+
+.member-card:hover::after { 
+  opacity: 1; 
+  animation: glowPulse 2s ease-in-out infinite; 
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+.member-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.member-card:hover .member-avatar {
+  box-shadow: 0 0 25px rgba(32, 60, 138, 0.7);
+  transform: scale(1.1);
+}
+
+.member-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.member-nim {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+}
+
+.member-role {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 3px 12px;
+  background: rgba(236, 236, 238, 0.87);
+  border: 1px solid rgba(32, 79, 209, 0.45);
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.member-role.ketua {
+  background: rgb(28, 65, 107);
+  border-color: rgba(175, 173, 55, 0.5);
+  color: #94a3b8;
+}
+
+.member-role.wakil {
+  background: rgba(30,64,175,0.25);
+  border-color: rgba(30,64,175,0.45);
+  color: var(--accent2);
+}
+
+.member-role.sekretaris {
+  background: rgba(29,78,216,0.25);
+  border-color: rgba(29,78,216,0.45);
+  color: var(--accent3);
+}
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.info-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 32px;
+  transition: all 0.4s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(30,58,138,0.25);
+}
+
+.info-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.info-card p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.info-card .icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 0 10px rgba(30,58,138,0.5));
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  border-top: 1px solid var(--glass-border);
+}
+
+footer span { color: var(--accent); }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(15px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: rgba(20,20,30,0.98);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  animation: fadeInUp 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px; right: 20px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.modal-close:hover { 
+  background: rgba(255,255,255,0.2);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.modal-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 auto 18px;
+  box-shadow: 0 0 30px rgba(30,58,138,0.6);
+}
+
+.modal h2 { font-size: 22px; font-weight: 700; }
+.modal .nim { color: var(--text-secondary); font-size: 13px; margin-top: 4px; }
+.modal .role { margin-top: 12px; }
+
+.modal-info {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: left;
+}
+
+.modal-info-item {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  transition: all 0.3s;
+}
+
+.modal-info-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 30px rgba(30,58,138,0.3);
+}
+
+.modal-info-item .label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-info-item .value {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 4px;
+  color: var(--text-primary);
+}
+
+/* Keyframes cinematic */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cinematicSlide {
+  0% { 
+    opacity: 0; 
+    transform: translateY(60px) scale(0.92) rotateX(15deg); 
+    filter: blur(15px) brightness(0.7); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translateY(15px) scale(1.02) rotateX(5deg); 
+    filter: blur(3px) brightness(1); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1) rotateX(0deg); 
+    filter: blur(0) brightness(1.05); 
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .members-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+}
