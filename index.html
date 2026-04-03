@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil Kelas – Teknik Elektro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">⚡ EE Class 2024</div>
+    <ul class="nav-links">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#anggota">Anggota</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-badge"><span></span> Teknik Elektro · Semester 2 · 2024</div>
+    <h1>Kelas <span class="highlight">2EL1</span><br/>Teknik Elektro</h1>
+    <p>Selamat datang di halaman profil kelas kami. Bersama kami belajar, berinovasi, dan bertumbuh di bidang teknik elektro.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">30</div>
+        <div class="stat-label">Anggota Aktif</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Semester</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2024</div>
+        <div class="stat-label">Angkatan</div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      Scroll ke bawah
+    </div>
+  </section>
+
+  <!-- MEMBERS -->
+  <div class="section" id="anggota">
+    <div class="section-header">
+      <h2>Anggota Kelas</h2>
+      <p>30 mahasiswa penuh semangat & potensi luar biasa ✨</p>
+    </div>
+    <div class="members-grid" id="membersGrid"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section" id="tentang">
+    <div class="section-header">
+      <h2>Tentang Kelas</h2>
+      <p>Lebih dekat dengan kelas kami</p>
+    </div>
+    <div class="about-grid">
+      <div class="info-card">
+        <div class="icon">🏛️</div>
+        <h3>Program Studi</h3>
+        <p>S1 Teknik Elektro — mempelajari sistem kelistrikan, elektronika, kontrol, dan teknologi energi terbarukan untuk masa depan.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">📅</div>
+        <h3>Tahun Ajaran</h3>
+        <p>Angkatan 2024 — saat ini menempuh semester 2. Aktif mengikuti kegiatan akademik, praktikum, dan organisasi kampus.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🎯</div>
+        <h3>Visi Kelas</h3>
+        <p>Menjadi generasi insinyur yang kompeten, kolaboratif, dan berdampak nyata bagi kemajuan teknologi Indonesia.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">⚡</div>
+        <h3>Semangat Kami</h3>
+        <p>"Bukan hanya belajar teori, tapi menciptakan solusi nyata." — Kelas 2EL1 selalu siap menghadapi tantangan bersama.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with <span>♥</span> by Kelas 2EL1 · Teknik Elektro 2024 · © 2026</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalBox">
+      <button class="modal-close" id="modalCloseBtn">✕</button>
+      <div class="modal-avatar" id="modalAvatar"></div>
+      <h2 id="modalName"></h2>
+      <div class="nim" id="modalNim"></div>
+      <div class="role" id="modalRole"></div>
+      <div class="modal-info" id="modalInfo"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
