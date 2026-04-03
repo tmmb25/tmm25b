@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil Kelas – TMM 25B</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">TMM 25 B</div>
+    <ul class="nav-links">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#anggota">Anggota</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-badge"><span></span> Teknik Multimedia · Semester 2 · 2026</div>
+    <h1>Kelas <span class="highlight">TMM B 25</span><br/>Teknik Multimedia</h1>
+    <p>Selamat datang di halaman profil kelas kami. Bersama kami belajar, berinovasi, dan bertumbuh.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">30</div>
+        <div class="stat-label">Anggota Aktif</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Semester</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2025</div>
+        <div class="stat-label">Angkatan</div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      Scroll ke bawah
+    </div>
+  </section>
+
+  <!-- MEMBERS -->
+  <div class="section" id="anggota">
+    <div class="section-header">
+      <h2>Anggota Kelas</h2>
+      <p>30 mahasiswa penuh semangat & potensi luar biasa!</p>
+    </div>
+    <div class="members-grid" id="membersGrid"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section" id="tentang">
+    <div class="section-header">
+      <h2>Tentang Kelas</h2>
+      <p>Lebih dekat dengan kelas kami</p>
+    </div>
+    <div class="about-grid">
+      <div class="info-card">
+        <div class="icon">🏛️</div>
+        <h3>Program Studi</h3>
+        <p>D4 Teknik Multimedia — Program Studi D4 Teknik Multimedia merupakan program vokasi yang berfokus pada penguasaan teknologi dan keterampilan di bidang multimedia, seperti desain grafis, animasi, produksi video, serta pengembangan web dan aplikasi interaktif. Kurikulum dirancang sesuai kebutuhan industri kreatif, sehingga lulusan memiliki kemampuan teknis dan kreatif yang siap diterapkan di dunia kerja sebagai profesional di bidang multimedia..</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">📅</div>
+        <h3>Tahun Ajaran</h3>
+        <p>Angkatan 2025 — saat ini menempuh semester 2. Aktif mengikuti kegiatan akademik, praktikum, dan organisasi kampus.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🎯</div>
+        <h3>Visi Kelas</h3>
+        <p>Menjadi generasi insinyur yang kompeten, kolaboratif, dan berdampak nyata bagi kemajuan teknologi Indonesia.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">⚡</div>
+        <h3>Semangat Kami</h3>
+        <p>"Bukan hanya belajar teori, tapi menciptakan solusi nyata." — Kelas 2EL1 selalu siap menghadapi tantangan bersama.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with <span></span> by Kelas TMM B 25 · Teknik Multimedia · © 2026</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalBox">
+      <button class="modal-close" id="modalCloseBtn">✕</button>
+      <div class="modal-avatar" id="modalAvatar"></div>
+      <h2 id="modalName"></h2>
+      <div class="nim" id="modalNim"></div>
+      <div class="role" id="modalRole"></div>
+      <div class="modal-info" id="modalInfo"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
