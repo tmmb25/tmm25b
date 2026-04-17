@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/tmm25b/"
+  base: "/tmm25b/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
