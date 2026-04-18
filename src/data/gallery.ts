@@ -14,6 +14,10 @@ export const galleryImages: GalleryImage[] = [
   { id: 1, src: import.meta.env.BASE_URL + "/gallery/foto1.jpeg", caption: "Hari Pertama Kuliah" },
   { id: 2, src: import.meta.env.BASE_URL + "/gallery/foto2.jpeg", caption: "Pertama kali pake Baju Kelas"},
   { id: 3, src: import.meta.env.BASE_URL + "/gallery/foto3.jpeg", caption: "Matkul Budaya Visual, Ibu Nurul Khasanah"},
+  { id: 4, src: import.meta.env.BASE_URL + "/gallery/foto4.jpeg", caption: "Beraye di rumah Nindia"},
+  { id: 5, src: import.meta.env.BASE_URL + "/gallery/foto5.jpeg", caption: "Beraye di rumah Oji"},
+  { id: 6, src: import.meta.env.BASE_URL + "/gallery/foto6.jpeg", caption: "BUKBER Ramadhan 2025"},
+  { id: 7, src: import.meta.env.BASE_URL + "/gallery/foto7.jpeg", caption: "Baju Prodi"},
   // Contoh — ganti src dengan path foto asli lo
   // { id: 1, src: "/gallery/foto1.jpg", caption: "Orientasi Mahasiswa Baru 2025" },
   // { id: 2, src: "/gallery/foto2.jpg", caption: "Praktikum Desain Grafis" },
