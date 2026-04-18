@@ -359,7 +359,7 @@ const App: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="h-px w-6 bg-white/15" />
             <span className="text-white/20 text-xs font-mono tracking-widest">
-              TM2B · 2025
+              TMM2B · 2025
             </span>
             <span className="h-px w-6 bg-white/15" />
           </div>
