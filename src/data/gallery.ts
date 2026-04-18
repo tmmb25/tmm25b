@@ -11,7 +11,7 @@ export interface GalleryImage {
 // ───────────────────────────────────────────────────────────────────────────
 
 export const galleryImages: GalleryImage[] = [
-  { id: 1, src: /gallery/foto1.jpg, caption: "Hari Pertama Kuliah" },
+  { id: 1, src: "/gallery/foto1.jpg", caption: "Hari Pertama Kuliah" },
   // Contoh — ganti src dengan path foto asli lo
   // { id: 1, src: "/gallery/foto1.jpg", caption: "Orientasi Mahasiswa Baru 2025" },
   // { id: 2, src: "/gallery/foto2.jpg", caption: "Praktikum Desain Grafis" },
