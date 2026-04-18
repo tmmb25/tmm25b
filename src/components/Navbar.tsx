@@ -35,10 +35,10 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <button onClick={() => handleNav("#home")} className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-[#0a1628] flex items-center justify-center">
-            <span className="text-white font-bold text-xs font-mono">TM</span>
+            <span className="text-white font-bold text-xs font-mono">TMM</span>
           </div>
           <span className={`font-semibold text-sm tracking-widest uppercase transition-colors ${scrolled ? "text-[#0a1628]" : "text-white"}`}>
-            TM2B
+            TMM 2B
           </span>
         </button>
 
