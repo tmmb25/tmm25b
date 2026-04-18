@@ -12,8 +12,8 @@ export interface GalleryImage {
 
 export const galleryImages: GalleryImage[] = [
   { id: 1, src: import.meta.env.BASE_URL + "/gallery/foto1.jpeg", caption: "Hari Pertama Kuliah" },
-  { id: 2, src: import.meta.env.BASE_URL + "/gallery/foto2.jpeg", caption: "Pertama kali pake Baju Kelas"}
-  { id: 3, src: import.meta.env.BASE_URL + "/gallery/foto3.jpeg", caption: "Matkul Budaya Visual, Ibu Nurul Khasanah"}
+  { id: 2, src: import.meta.env.BASE_URL + "/gallery/foto2.jpeg", caption: "Pertama kali pake Baju Kelas"},
+  { id: 3, src: import.meta.env.BASE_URL + "/gallery/foto3.jpeg", caption: "Matkul Budaya Visual, Ibu Nurul Khasanah"},
   // Contoh — ganti src dengan path foto asli lo
   // { id: 1, src: "/gallery/foto1.jpg", caption: "Orientasi Mahasiswa Baru 2025" },
   // { id: 2, src: "/gallery/foto2.jpg", caption: "Praktikum Desain Grafis" },
